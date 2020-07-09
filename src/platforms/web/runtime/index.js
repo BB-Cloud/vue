@@ -1,6 +1,15 @@
+/*
+ * @Author: your name
+ * @Date: 2020-06-29 09:13:58
+ * @LastEditTime: 2020-07-07 17:38:29
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue/src/platforms/web/runtime/index.js
+ */ 
 /* @flow */
 
-import Vue from 'core/index'
+// 核心引用
+import Vue from 'core/index' 
 import config from 'core/config'
 import { extend, noop } from 'shared/util'
 import { mountComponent } from 'core/instance/lifecycle'
@@ -34,6 +43,7 @@ extend(Vue.options.components, platformComponents)
 Vue.prototype.__patch__ = inBrowser ? patch : noop
 
 // public mount method
+// 之所以这么设计完全是为了复用，因为它是可以被 runtime only 版本的 Vue 直接使用的。
 Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean

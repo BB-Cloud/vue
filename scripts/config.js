@@ -25,6 +25,7 @@ const weexFactoryPlugin = {
   }
 }
 
+// 找到配置对应的入口文件
 const aliases = require('./alias')
 const resolve = p => {
   const base = p.split('/')[0]
@@ -34,6 +35,14 @@ const resolve = p => {
     return path.resolve(__dirname, '../', p)
   }
 }
+
+// Vue.js 构建的配置
+// entry 属性表示构建的入口 JS 文件地址
+// dest 属性表示构建后的 JS 文件地址
+// format 属性表示构建的格式 
+//    cjs 表示构建出来的文件遵循 CommonJS 规范，
+//    es 表示构建出来的文件遵循 ES Module 规范。
+//    umd 表示构建出来的文件遵循 UMD 规范。
 
 const builds = {
   // Runtime only (CommonJS). Used by bundlers e.g. Webpack & Browserify
